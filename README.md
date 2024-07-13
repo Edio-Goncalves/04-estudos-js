@@ -31,120 +31,102 @@ Variaveis var, let e const (declaração de variáveis e escopo de uso)
 <p class="separador">Operadores matemáticos (+, -, /, *, %, ++, --)</p>
 
 ```
-  var divisao = n1 / n2;
-  console.log(divisao + " divisão /");
+var soma = n1 + n2; // SOMA
 
-  var multiplicacao = n1 * n2;
-  console.log(multiplicacao);
+var subtracao = n1 - n2; // SUBTRAÇÃO
 
-  var mod = n3 % n2;
-  console.log(mod);
+var divisao = n1 / n2; // DIVISÃO
 
-  var incremento = n1;
-  incremento++;
-  console.log(incremento);
+var multiplicacao = n1 * n2; // MULTIPLICAÇÃO
 
-  var decremento = n1;
-  decremento--;
-  console.log(decremento);
+var mod = n3 % n2; // MOD
 
-  var operadores = n1;
-  operadores += 5;
-  console.log(operadores);
-
-```
-
-- Soma "+"
-
-```
-var soma = n1 + n2;
-```
-
-- Subtração "-"
-
-```
-var subtracao = n1 - n2;
-```
-
-- Divisão "-"
-
-```
-var divisao = n1 / n2;
-```
-
-- Multiplicação "-"
-
-```
-var divisao = n1 * n2;
-```
-
-var mod = n3 % n2;
-console.log(mod);
-
-var incremento = n1;
+var incremento = n1; // INCREMENTO
 incremento++;
-console.log(incremento);
 
-var decremento = n1;
+var decremento = n1; // DECREMENTO
 decremento--;
-console.log(decremento);
 
-var operadores = n1;
+var operadores = n1; //
 operadores += 5;
-console.log(operadores);
 
-#
-
-### LINKS E IMAGENS
-
-<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks">Documentação Hiperlinks AQUI</a> <br />  
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">Documentação de Imagens AQUI</a>
-
-- `<a href="../localArquivo">` Link para um arquivo, como para um outro index.html
-- `<img src="https://linkdaimagemonline.com" alt="identificadorDaImagem" width="400px" />` Para pegar um link online, onde identificamos um nome se para ele caso não carregue e também já damos um tamanho como opção
-- `<img src="../localArquivo" alt="id" width="250px"/>` Buscar imagem dentro de um local no projeto
-- `<a href="https://linkDoLocalOnline.com"> <img src="../localArquivo" alt="sorvete" width="250px"> </a>` Vamos pegar um link online e agregar a um arquivo que estamos usando no projeto
-- Para criar um link ancora:
-
-```
-    <a href="#ancora" id="ancora02"> clique aqui 01 </a>
-
-    <a href="#ancora02"> <img id="ancora" src="../localDaImagem"/> clique aqui 02 </a>
-
-<!-- Quando clicamos no link "clique aqui 01" vamos ser jogados diretamente ao "id='ancora'" e quando clicarmos no
-"clique aqui 02" vamos ser levamos até o " id='ancora02'"-->
 ```
 
 #
 
-### TRABALHANDO COM LISTAS
-
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol">Documentação de Listas AQUI</a>
-
-#### Lista não ordenada
+<p class="separador">Operadores de comparação (<, >, >=, >=, ==, ===)</p>
 
 ```
-Exemplo de construção:
+{
+  const n1 = 10,
+    n2 = 2,
+    n3 = 10;
 
-    <ul>
-      <li>arroz</li>
-      <li>feijão</li>
-      <li>agua</li>
-    </ul>
-
-<!-- Na lista não ordenada vamos ter uma bolinha na frente -->
+  console.log((n1 > n2) + " (> maior que)");
+  console.log((n1 < n2) + " (< menor que)");
+  console.log((n1 >= n2) + " (>= maior ou igual)");
+  console.log((n1 <= n3) + " (<= menor ou igual)");
+  console.log(
+    (n1 == n3) + " (== comparação, apenas = é operador de atribuição)"
+  );
+  console.log((n1 != n3) + " (!= significa diferente, no caso n1 é igual n3)");
+  console.log(
+    !(n1 == n3) +
+      " (! negação, se for true ele entrega false, pois inverte a operação)"
+  );
+}
 ```
 
-#### Lista ordenada de um ranking
+<p class="separador">Operadores lógicos (&&, ||)</p>
 
 ```
-Exemplo de construção:
+AND (e)     OR (ou)
+V + V = V   V + V = V
+V + F = F   V + F = V
+F + V = F   F + V = V
+F + F = F   F + F = F
 
-    <ol>
-      <li>João</li>
-      <li>Julia</li>
-      <li>Matheus</li>
-    </ol>
+AND= só vai ser true se todas forem verdadeiras
+OR= só vai ser false se todas forem falsa
+```
 
-<!-- Na lista ordenada vamos ter uma numeração na frente -->
+```
+{
+  let n1, n2, n3;
+  n1 = 10;
+  n2 = 2;
+  n3 = 10;
+
+  console.log(n1 > n2 && n1 > n3); // false (V+F=F)
+  console.log(n1 > n2 || n1 > n3); // true (V+F=V)
+}
+```
+
+<p class="separador">Operadores de PÓS e PRE incremento e decremento (++, --)</p>
+
+PÓS incremento:
+
+```
+  console.log(n1++);
+  console.log(n1);
+  /* Primeiro usa o valor e depois incrementa, vai usar o valor original e imprimir a alteração após usar ele, ou seja só vai aparecer a alteração na proxima vez que for requisitado*/
+```
+
+PRÉ incremento:
+
+```
+console.log(++n2);
+  console.log(n2);
+  /* Primeiro incrementa o valor e depois usa, ou seja a alteração aparece de imediato */
+```
+
+<p class="separador">Operação Ternária (?)</p>
+Sintaxe:  
+(teste logico ? se verdadeiro (true) : se falso (false))
+
+```
+let num = 11;
+  res = !(num % 2) ? "é par" : "é impar";
+  console.log(res); // se o resultado da operação logica for true ele retorna a 1° opção se false a 2°
+// Foi utilizado (!) negação por que o resultado "0" significa false e o "1" significa true, e o % de um numero par sempre vai ser "0"
 ```
