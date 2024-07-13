@@ -36,39 +36,44 @@ const n1 = 10,
     n3 = 11;
 
   var soma = n1 + n2;
-  console.log(soma + " (soma +)");
+  console.log(soma);
 
   var subtracao = n1 - n2;
-  console.log(subtracao + " (subtração -)");
+  console.log(subtracao);
 
   var divisao = n1 / n2;
   console.log(divisao + " divisão /");
 
   var multiplicacao = n1 * n2;
-  console.log(multiplicacao + " multiplicação *");
+  console.log(multiplicacao);
 
   var mod = n3 % n2;
-  console.log(mod + " mod (resto da divisão %)");
+  console.log(mod);
 
   var incremento = n1;
   incremento++;
-  console.log(incremento + " incremento ++");
+  console.log(incremento);
 
   var decremento = n1;
   decremento--;
-  console.log(decremento + " decremento --");
+  console.log(decremento);
 
   var operadores = n1;
   operadores += 5;
-  console.log(operadores + " operadores");
+  console.log(operadores);
 
 ```
 
-- `class=""` / Soma "+"
+- Soma "+"
 
 ```
 var soma = n1 + n2;
-console.log(soma + " (soma +)");
+```
+
+- Subtração "-"
+
+```
+var subtracao = n1 - n2;
 ```
 
 #
