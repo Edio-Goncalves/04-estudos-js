@@ -19,9 +19,9 @@
 
 ### VARIAVEIS
 
-Variaveis var, let e const (declaração de variáveis e escopo de uso)
-`var nome = "Edio";` // Escopo global e pode ser alterada
-`let sobrenome = "Gonçalves";` // Escopo de bloco e pode ser alterada
+Variaveis var, let e const (declaração de variáveis e escopo de uso)  
+`var nome = "Edio";` // Escopo global e pode ser alterada  
+`let sobrenome = "Gonçalves";` // Escopo de bloco e pode ser alterada  
 `const agnome = "Junior";` // Escopo de bloco e NÃO pode ser alterada
 
 #
