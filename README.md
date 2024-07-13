@@ -31,16 +31,6 @@ Variaveis var, let e const (declaração de variáveis e escopo de uso)
 <p class="separador">Operadores matemáticos (+, -, /, *, %, ++, --)</p>
 
 ```
-const n1 = 10,
-    n2 = 2,
-    n3 = 11;
-
-  var soma = n1 + n2;
-  console.log(soma);
-
-  var subtracao = n1 - n2;
-  console.log(subtracao);
-
   var divisao = n1 / n2;
   console.log(divisao + " divisão /");
 
@@ -75,6 +65,33 @@ var soma = n1 + n2;
 ```
 var subtracao = n1 - n2;
 ```
+
+- Divisão "-"
+
+```
+var divisao = n1 / n2;
+```
+
+- Multiplicação "-"
+
+```
+var divisao = n1 * n2;
+```
+
+var mod = n3 % n2;
+console.log(mod);
+
+var incremento = n1;
+incremento++;
+console.log(incremento);
+
+var decremento = n1;
+decremento--;
+console.log(decremento);
+
+var operadores = n1;
+operadores += 5;
+console.log(operadores);
 
 #
 
