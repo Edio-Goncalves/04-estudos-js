@@ -518,3 +518,59 @@ console.log(soma(2, 3));
 ```
 
 #
+
+- Função Geradora
+
+<a href="https://www.youtube.com/watch?v=3j9Ikmm2ieA&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=28">YT Função Geradora, Professor Bruno (CFB) </a>  
+Ela tem o seu retorno adiado até que for preciso o seu retorno, a propria função tem o controle de sua execução  
+Temos que usar a palavra "function\*"
+
+Ex: 01
+
+```
+{
+
+  function* cores() {
+    yield "vermelho";
+    yield "verde";
+    yield "azul";
+  }
+  const itc = cores();
+  console.log(itc.next().value);
+  console.log(itc.next().value);
+}
+```
+
+Ex: 02
+
+```
+{
+  function* perguntas() {
+    const nome = yield "Qual seu nome?";
+    const esporte = yield "Qual seu esporte favorito?";
+    return "Meu nome é " + nome + " e meu esporte favorito é " + esporte;
+  }
+  const itc = perguntas();
+  console.log(itc.next().value);
+  console.log(itc.next("Edio").value);
+  console.log(itc.next("Futebol").value);
+}
+```
+
+Ex: 03
+
+```
+{
+  function* contador() {
+    let i = 0;
+    while (true) {
+      yield i++;
+      if (i > 10) break;
+    }
+  }
+  const itc = contador();
+  for (let v of itc) {
+    console.log(v);
+  }
+}
+```

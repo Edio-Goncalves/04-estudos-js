@@ -1,0 +1,23 @@
+.curso {
+  background-color: aquamarine;
+}
+.c1 {
+  color: brown;
+}
+.c2 {
+  color: blueviolet;
+  text-transform: uppercase;
+}
+.fundo {
+  text-align: center;
+  margin-bottom: 5px;
+  background-color: #252525;
+  color: aliceblue;
+  width: 300px;
+  border: 2px solid red;
+  border-radius: 20em;
+}
+.addViaTarget {
+  background-color: aliceblue;
+  color: #252525;
+}

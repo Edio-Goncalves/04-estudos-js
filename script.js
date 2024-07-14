@@ -361,3 +361,232 @@ OR= só vai ser false se todas forem falsa
   };
   console.log(soma(2, 3));
 }
+
+// Função Geradora
+//<a href="https://www.youtube.com/watch?v=3j9Ikmm2ieA&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=28">YT Função Geradora, Professor Bruno (CFB) </a>
+// Ela tem o seu retorno adiado até que for preciso o seu retorno, a propria função tem o controle de sua execução
+// Temos que usar a palavra "function*"
+{
+  `Ex: 01`;
+
+  function* cores() {
+    yield "vermelho";
+    yield "verde";
+    yield "azul";
+  }
+  const itc = cores();
+  console.log(itc.next().value);
+  console.log(itc.next().value);
+}
+{
+  `Ex: 02`;
+
+  function* perguntas() {
+    const nome = yield "Qual seu nome?";
+    const esporte = yield "Qual seu esporte favorito?";
+    return "Meu nome é " + nome + " e meu esporte favorito é " + esporte;
+  }
+  const itc = perguntas();
+  console.log(itc.next().value);
+  console.log(itc.next("Edio").value);
+  console.log(itc.next("Futebol").value);
+}
+{
+  `Ex: 03`;
+
+  function* contador() {
+    let i = 0;
+    while (true) {
+      yield i++;
+      if (i > 10) break;
+    }
+  }
+  const itc = contador();
+  for (let v of itc) {
+    console.log(v);
+  }
+}
+
+// MAP
+// <a href="https://www.youtube.com/watch?v=0M2ba5A6DHY&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=29">YT MAP, Professor Bruno (CFB) </a>
+// Ele vai interar toda a coleção sem a opção de parar no meio
+// MAP pode receber 3 parametros, o elemento a posição do elemento e a propria coleção
+
+//Ex:01
+{
+  const cursos = ["CSS", "HTML", "JS", "PHP", "PYTHON"];
+  cursos.map((el, i) => {
+    console.log(el, i);
+    console.log("O curso " + el + " está na posição index " + i);
+  });
+}
+//Ex:02
+{
+  let cursos = document.getElementsByTagName("section");
+  cursos = [...cursos];
+
+  const elementos = cursos.map((el, i) => {
+    console.log(el.innerHTML, i);
+
+    let elem = el.innerHTML;
+    return elem;
+  });
+  console.log(elementos);
+}
+
+//Ex:03
+{
+  const cursos = document.getElementsByTagName("section");
+  const val = Array.prototype.map.call(cursos, ({ innerHTML }) => innerHTML);
+  console.log(val);
+}
+
+//Ex:04
+{
+  const converterInt = (ele) => parseInt(ele);
+  let num = ["1", "2", "3", "4", "5"].map(converterInt);
+  console.log(num);
+}
+
+// THIS
+// Fora do escopo locais o this se refere ao objeto global
+// Em objetos o this se refere a instancia (escopo) que ele está e pode acessar suas propriedades
+// This dentro de objeto com metodo: se a function for tradicional ele ganha escopo no objeto, se for arrow ele nao ganha scopo no objeto
+
+// <a href="https://www.youtube.com/watch?v=KGYHCnb95-Y">YT THIS, Roger Melo </a>
+// <a href="https://www.youtube.com/watch?v=21U6gqefijo&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=30">YT THIS, Professor Bruno (CFB) </a>
+// <a href="https://www.youtube.com/watch?v=WsbMaN3PP9I">YT THIS, Matheus Battisti </a>
+
+`Ex:01`; //caso queira ou precise usar uma variavel com o mesmo nome do parametro, pode-se usar o this
+{
+  function aluno(nome, nota) {
+    this.nome = nome;
+    this.nota = nota;
+    return nome + " e " + nota;
+  }
+
+  console.log(aluno("Edio", 10));
+}
+
+`Ex:02`; // R:2024; Objeto método com função tradicional, acessando o objeto e retornando a propriedade
+{
+  const a = {
+    prop: 2024,
+    f: function () {
+      return this.prop;
+    },
+  };
+  console.log(a.f());
+}
+
+`Ex:03`; // R: undefined;Objeto método com arrow function faz o objeto perder o escopo e o this vai procurar no global (window)
+{
+  const a = {
+    prop: 2024,
+    f: () => {
+      return this.prop;
+    },
+  };
+  console.log(a.f());
+}
+
+`Ex:04`; //O this precisa de contexto para funcionar, ele precisa de escopo ou vai buscar o Global, se tentar pegar dados de outro contexto como em um "pai", devemos usar uma arrow function, porque ele usa o contexto do "pai"
+{
+  function aluno(nome, nota) {
+    this.nome = nome;
+    this.nota = nota;
+
+    this.dados_alunos = function () {
+      setTimeout(() => {
+        console.log(this.nome);
+        console.log(this.nota);
+      }, 10);
+    };
+  }
+
+  const al1 = new aluno("Edio", 100);
+  al1.dados_alunos();
+}
+// DOM - getElelement
+// getElementById
+{
+  const dc1 = document.getElementById("d1");
+  console.log(dc1);
+  console.log(dc1.id);
+  console.log(dc1.innerHTML);
+
+  dc1.innerHTML = "Edio Gonçalves";
+  console.log(dc1.innerHTML);
+}
+
+// getElementByTagName
+
+{
+  let dc2 = document.getElementsByTagName("section");
+  console.log(dc2); // aqui tenho uma HTML collection
+
+  dc2 = [...dc2]; // aqui mudo HTML collection para array
+  console.log(dc2);
+
+  dc2.map((e) => {
+    // percorro o array
+    console.log(e.innerHTML);
+  });
+}
+
+// getElementByTagName
+{
+  let todosCursos = [...document.getElementsByClassName("curso")];
+  let cursosc1 = [...document.getElementsByClassName("c1")];
+  let cursosc2 = [...document.getElementsByClassName("c2")];
+  console.log(todosCursos);
+  console.log(cursosc1);
+  console.log(cursosc2);
+
+  todosCursos.map((e) => {
+    e.classList.add("fundo");
+  });
+}
+
+// DOM querySelector and querySelectorAll
+// querySlector é mais genérico, ele vai pegar o elemento que for especificado
+{
+  const divAll = [...document.getElementsByTagName("div")];
+  console.log(divAll);
+
+  const divQuery = document.querySelector("div"); // Vai pegar só a primeira div
+  const divQueryAll = [...document.querySelectorAll("div")]; // Pega todas div e posso transformar em array
+  const divQueryAllCursos = [...document.querySelectorAll(".curso")]; // Pegango todas classes curso
+  const divQueryAllDoiElementos = [
+    ...document.querySelectorAll("div, section"),
+  ];
+  const divQueryAllPorPosicao = document.querySelectorAll(".curso")[2];
+  console.log(divQuery);
+  console.log(divQueryAll);
+  console.log(divQueryAllCursos);
+  console.log(divQueryAllDoiElementos);
+  console.log(divQueryAllPorPosicao);
+}
+
+// EVENTS
+// <a href="https://www.youtube.com/watch?v=4vCBmu3z5FY&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=35">YT ENVENT LIST, Professor Bruno (CFB) </a>
+
+`Ex:01`; // Adicionando um evento de click
+{
+  const buttonHtml = document.querySelector(".html");
+  console.log(buttonHtml);
+  buttonHtml.addEventListener("click", () => {
+    alert("Hello");
+  });
+}
+
+`Ex:02`; // Encontrando o target para adicionar eventos
+{
+  const buttonCss = document.querySelector(".css");
+  console.log(buttonCss);
+  buttonCss.addEventListener("click", (evt) => {
+    const buttonCssTarget = evt.target;
+    buttonCssTarget.classList.add("addViaTarget");
+    console.log(evt.target);
+  });
+}
