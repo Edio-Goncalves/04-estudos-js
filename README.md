@@ -7,6 +7,9 @@
 - [TYPEOF](#typeof)
 - [SPREAD](#spread)
 - [CONDIÇÕES](#condições)
+- [SWITCH CASE](#switch-case)
+- [LOOPS](#loops)
+- [FUNCTION](#function)
 
 ### LINKS DE VÍDEOS CURSOS E DOCUMENTAÇÃO
 
@@ -16,7 +19,7 @@
 
 ### CONSOLE
 
-- `Console.log()` //para imprimir no console, vamos usar para debugar
+`Console.log()` //para imprimir no console, vamos usar para debugar
 
 #
 
@@ -31,7 +34,7 @@ Variaveis var, let e const (declaração de variáveis e escopo de uso)
 
 ### OPERADORES
 
-<p class="separador">Operadores matemáticos (+, -, /, *, %, ++, --)</p>
+- Operadores matemáticos (+, -, /, \*, %, ++, --)
 
 ```
 var soma = n1 + n2; // SOMA
@@ -57,7 +60,7 @@ operadores += 5;
 
 #
 
-<p class="separador">Operadores de comparação (<, >, >=, >=, ==, ===)</p>
+- Operadores de comparação (<, >, >=, >=, ==, ===)
 
 ```
 {
@@ -82,7 +85,7 @@ operadores += 5;
 
 #
 
-<p class="separador">Operadores lógicos (&&, ||)</p>
+- Operadores lógicos (&& , | | )
 
 ```
 AND (e)     OR (ou)
@@ -109,7 +112,7 @@ OR= só vai ser false se todas forem falsa
 
 #
 
-<p class="separador">Operadores de PÓS e PRE incremento e decremento (++, --)</p>
+- Operadores de PÓS e PRE incremento e decremento (++, --)
 
 PÓS incremento:
 
@@ -130,7 +133,8 @@ console.log(++n2);
 
 #
 
-<p class="separador">Operação Ternária (?)</p>
+- Operação Ternária (?)
+
 Sintaxe:  
 (teste logico ? se verdadeiro (true) : se falso (false))
 
@@ -146,9 +150,9 @@ um numero par sempre vai ser "0"
 
 ### TYPEOF
 
-// Usado para identificar o tipo de dado
+Usado para identificar o tipo de dado
 
-- <a href="www.youtube.com/watch?v=_qgObfmqokw&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=13">Youtube Typeof</a>
+<a href="www.youtube.com/watch?v=_qgObfmqokw&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=13">LINK Youtube Typeof</a>
 
 ```
 {
@@ -168,8 +172,8 @@ um numero par sempre vai ser "0"
 
 ### SPREAD
 
-// (...) operador para quebrar um conjunto de elementos e devolver elemento à elemento  
-// Transformar elementos HTML em um array de elementos HTML e conseguir usar todas funções de array em elementos HTML
+(...) operador para quebrar um conjunto de elementos e devolver elemento à elemento  
+Transformar elementos HTML em um array de elementos HTML e conseguir usar todas funções de array em elementos HTML
 
 ```
 {
@@ -185,10 +189,9 @@ um numero par sempre vai ser "0"
 
 ### CONDIÇÕES
 
-<p class="separador">Condições (if, else if, else )</p>
-// se, senão, então
+<p class="separador">Condições (if, else if, else (se, senão, então))</p>
 
-//ex:01 (um bloco de comando)
+Ex: 01 (um bloco de comando)
 
 ```
   let n = 10;
@@ -197,7 +200,7 @@ um numero par sempre vai ser "0"
   }
 ```
 
-//ex:02 (doi blocos de comando)
+Ex: 02 (doi blocos de comando)
 
 ```
   let n = 10;
@@ -208,7 +211,7 @@ um numero par sempre vai ser "0"
   }
 ```
 
-//ex:03 (três blocos de comando)
+Ex: 03 (três blocos de comando)
 
 ```
   let n = 10;
@@ -221,7 +224,7 @@ um numero par sempre vai ser "0"
   }
 ```
 
-//ex:04 (operações condicionais)
+Ex: 04 (operações condicionais)
 
 ```
   let clima = "sol";
@@ -235,3 +238,283 @@ um numero par sempre vai ser "0"
     console.log("Vou ficar em casa");
   }
 ```
+
+#
+
+### SWITCH CASE
+
+Avalia uma expressão e se algum caso tiver correspondência ele executa o seu bloco de comandos se nenhum caso tem correspondência ele executa o default
+
+```
+{
+  let colocacao = 10;
+
+  switch (colocacao) {
+    case 1:
+      console.log("Primeiro lugar");
+      break;
+    case 2:
+      console.log("Segundo lugar");
+      break;
+    case 3:
+      console.log("Terceiro lugar");
+      break;
+    case 4:
+    case 5:
+    case 6:
+      console.log("Premio de participação");
+      break;
+    default:
+      console.log("Não pegou pódium");
+      break;
+  }
+}
+```
+
+#
+
+### LOOPS
+
+Cada repetição que o looping executar é uma interação que ele está executando;  
+Loops podem ser definidos (for) e indefinidos (while, do while);  
+empre que sabemos a quantidade de interações que vamos ter usamos o "for()";  
+Quando não sabemos a quantidade exata de interação que precisamos usamos "while()";
+
+#
+
+- For( )
+
+Sintaxe:  
+ for(inicialização; condição; controle)  
+ OBS: enquanto não retorar false ele não vai parar
+
+Ex: 01
+
+```
+for (let i = 0; i < 5; i++) {
+  console.log("valor do i = " + i);
+}
+```
+
+Ex: 02
+
+```
+let arraypar = [];
+let arrayimpar = [];
+for (let i = 0; i < 100; i++) {
+ if (i % 2 == 0) {
+   arraypar.push(i);
+ } else {
+   arrayimpar.push(i);
+ }
+}
+console.log("Arrey par -> " + arraypar);
+console.log("Arrey impar -> " + arrayimpar);
+```
+
+#
+
+- For(in)
+
+Basicamente entrega o index length
+
+```
+let anum = [10, 20, 30, 40, 50];
+
+for (let i = 0; i < anum.length; i++) {
+    console.log(i);
+}
+for (n in anum) {
+    console.log(n);
+// percorre o index posicional do elemento (length)
+}
+```
+
+#
+
+- For(of)
+
+Entrega o conteúdo de cada index da coleção
+
+Ex: 01
+
+```
+for (let i = 0; i < anum.length; i++) {
+    console.log(anum[i]);
+}
+for (n of anum) {
+    console.log(n);
+// percorre diretamente o conteudo do elemento
+}
+```
+
+Ex: 02
+
+```
+
+const objts = document.getElementsByTagName("div");
+
+for (o in objts) {
+    console.log((objts[o].innerHTML = "Teste do in"));
+}
+for (o of objts) {
+    console.log((o.innerHTML = "Teste do of"));
+}
+
+```
+
+#
+
+- While
+
+Enquanto a condição for verdadeira
+
+```
+let n = 5;
+let fatorial = 1;
+while (n > 1) {
+fatorial \*= n;
+n--;
+}
+console.log(fatorial);
+```
+
+#
+
+- Do While
+
+Ele garante que ao menos uma vez o bloco de comando será executado
+
+Ex: 01
+
+```
+let g = 10;
+while (g < 10) {
+    console.log("While executado");
+g++;
+}
+console.log("While Pulou do bloco de comando");
+```
+
+Ex:02
+
+```
+let c = 10;
+do {
+    console.log("While executado");
+c++;
+} while (c < 10);
+    console.log("While Pulou do bloco de comando");
+```
+
+#
+
+### FUNCTION
+
+É um bloco de comandos que vai executar em um momento oportuno
+
+- Conceito de return
+
+OBS: Sempre que uma function lê um "return" a função encerra-se
+
+```
+{
+let n = 1;
+let arrayNome = [];
+
+function nome() {
+    return "Edio";
+}
+
+for (let i = 0; i < 10; i++) {
+    arrayNome.push(nome() + n);
+    n++;
+}
+
+console.log(arrayNome);
+}
+```
+
+#
+
+- Funções parametrizadas
+
+Funções que recebem paramentros  
+Podemos colocar valores padrões para cada parametro caso ele não seja chamado (como o "p4" no exemplo abaixo)
+
+```
+{
+const vlp = 0;
+
+function soma(p1 = vlp, p2 = vlp, p3 = vlp, p4 = vlp) {
+    return p1 + " " + p2 + p3 + " nascido em " + (p4 - p2);
+}
+
+let resultado = soma("Edio", 37, "anos", 2024);
+
+console.log(resultado);
+}
+```
+
+#
+
+- Funções parametrizadas "rest"
+
+É uma forma de passagem de parametro onde não é preciso especificar efetivamente a quantidade de parametros dentro da função
+
+```
+{
+function soma(...valores) {
+    let res = 0;
+    for (let v of valores) {
+    res += v;
+}
+return res;
+}
+
+console.log(soma(10, 20, 30, 40));
+}
+```
+
+#
+
+- Funções anonimas
+
+Funções criadas em tempo de execução, ela não precisa de um nome para ela o que deixa ela fora do armazenamento da memoria  
+Por obrigação é preciso associar a funçaõ a alguma variavel
+
+Ex: 01 Function
+
+```
+{
+const f = function (v1, v2) {
+    return v1 \* v2;
+};
+
+console.log(f(10, 5));
+}
+```
+
+Ex: 02 Função construtora
+
+```
+{
+const f = new Function("v1", "v2", "v3", "return v1 + v2 + v3");
+
+console.log(f(5, 7, 11));
+}
+```
+
+Ex: 03 Arrow Function
+
+```
+{
+const soma = (v1, v2) => {
+    return v1 \* v2;
+};
+
+console.log(soma(2, 3));
+}
+```
+
+#

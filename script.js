@@ -286,3 +286,78 @@ OR= só vai ser false se todas forem falsa
   {
   }
 }
+
+/* FUNCTION */
+// É um bloco de comandos que vai executar em um momento oportuno
+
+// Conceito de return
+// Sempre que uma function lê um "return" a função encerra-se
+{
+  let n = 1;
+  let arrayNome = [];
+
+  function nome() {
+    return "Edio";
+  }
+
+  for (let i = 0; i < 10; i++) {
+    arrayNome.push(nome() + n);
+    n++;
+  }
+
+  console.log(arrayNome);
+}
+
+// funções parametrizadas
+// funções que recebem paramentros
+// Podemos colocar valores padrões para cada parametro caso ele não seja chamado (como o "p4" no exemplo abaixo)
+{
+  const vlp = 0;
+
+  function soma(p1 = vlp, p2 = vlp, p3 = vlp, p4 = vlp) {
+    return p1 + " " + p2 + p3 + " nascido em " + (p4 - p2);
+  }
+  let resultado = soma("Edio", 37, "anos", 2024);
+
+  console.log(resultado);
+}
+
+// funções parametrizadas "rest"
+// é uma forma de passagem de parametro onde não é preciso especificar efetivamente a quantidade de parametros dentro da função
+{
+  function soma(...valores) {
+    let res = 0;
+    for (let v of valores) {
+      res += v;
+    }
+    return res;
+  }
+
+  console.log(soma(10, 20, 30, 40));
+}
+
+// Funções anonimas
+// Funções criadas em tempo de execução, ela não precisa de um nome para ela o que deixa ela fora do armazenamento da memoria
+// Por obrigação é preciso associar a funçaõ a alguma variavel
+
+//Ex: 01 Function
+{
+  const f = function (v1, v2) {
+    return v1 * v2;
+  };
+  console.log(f(10, 5));
+}
+
+//Ex: 02 Função construtora
+{
+  const f = new Function("v1", "v2", "v3", "return v1 + v2 + v3");
+  console.log(f(5, 7, 11));
+}
+
+// Ex: 03 Arrow Functiob
+{
+  const soma = (v1, v2) => {
+    return v1 * v2;
+  };
+  console.log(soma(2, 3));
+}
