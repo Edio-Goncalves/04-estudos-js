@@ -586,7 +586,7 @@ OR= só vai ser false se todas forem falsa
   console.log(buttonCss);
   buttonCss.addEventListener("click", (evt) => {
     const buttonCssTarget = evt.target;
-    buttonCssTarget.classList.add("addViaTarget");
     console.log(evt.target);
+    buttonCssTarget.classList.add("addViaTarget");
   });
 }
