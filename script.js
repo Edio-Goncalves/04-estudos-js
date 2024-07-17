@@ -638,22 +638,32 @@ OR= só vai ser false se todas forem falsa
 
 // Remoção de elementos
 {
-  const newDiv = [...document.querySelectorAll("#newDivId div")];
-  const newClass = [...document.querySelectorAll(".newClass")];
-
-  newDiv.map((e) => {
-    const img = document.createElement("img");
-    e.appendChild(img);
-    img.setAttribute("src", "./img/lixo.png");
-
-    const newDive = document.querySelector("#newDivId");
-    img.addEventListener("click", (evt) => {
-      newDive.removeChild(evt.target.parentNode);
+  {
+    const newDiv = [...document.querySelectorAll("#newDivId div")];
+    const newClass = [...document.querySelectorAll(".newClass")];
+    newDiv.map((e) => {
+      const img = document.createElement("img");
+      e.appendChild(img);
+      img.setAttribute("src", "./img/lixo.png");
+      const newDive = document.querySelector("#newDivId");
+      img.addEventListener("click", (evt) => {
+        newDive.removeChild(evt.target.parentNode);
+      });
     });
-  });
+  }
 }
 
 // METODO FILTER
 // ele vai percorrer o array e vai retornar apenas os elementos selecionados
+// filter(valor, posição, array)=>{}
 {
+  const idades = [15, 16, 17, 18, 19, 20, 21, 22, 23];
+  console.log(idades);
+
+  const maior = idades.filter((val) => {
+    if (val >= 20) {
+      return val;
+    }
+  });
+  console.log(maior);
 }

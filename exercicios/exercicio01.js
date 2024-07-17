@@ -5,22 +5,23 @@ const btnTransfer = document.querySelector("#btnTransfer");
 const btnRestart = document.querySelector("#btnRestart");
 
 c1Elements.map((e) => {
-  e.addEventListener("click", () => {
-    e.classList.toggle("selecionado");
+  e.addEventListener("click", (elemento) => {
+    elemento.target.classList.toggle("selecionado");
   });
 });
 
-function moveElements(a, b) {
+function moveBoxes(a, b) {
   const selecionados = [...a.querySelectorAll(".selecionado")];
   selecionados.map((e) => {
+    console.log(e);
     b.appendChild(e);
     e.classList.remove("selecionado");
   });
 }
 
 btnTransfer.addEventListener("click", () => {
-  moveElements(box1, box2);
-  moveElements(box2, box1);
+  moveBoxes(box1, box2);
+  moveBoxes(box2, box1);
 });
 
 btnRestart.addEventListener("click", () => {
