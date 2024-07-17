@@ -590,3 +590,70 @@ OR= só vai ser false se todas forem falsa
     buttonCssTarget.classList.add("addViaTarget");
   });
 }
+
+// STOP PROPAGATION
+// Parar a propogação de um evento
+
+{
+  const mainBox = document.querySelector("main");
+  const cursos = [...document.querySelectorAll("main .curso")];
+  console.log(cursos);
+
+  // Apenas dessa forma o evento será propagado aos filhos
+  mainBox.addEventListener("click", () => {
+    console.log("Clicado");
+
+    mainBox.chi;
+  });
+
+  // Adicionamos um stop propagation para encerrar o evento propagado
+  cursos.map((e) => {
+    e.addEventListener("click", (element) => {
+      element.stopPropagation();
+      element.preventDefault();
+    });
+  });
+}
+// ADIÇÃO E REMOÇÃO DE ELEMENTOS NO DOM
+
+// Adição de elementos
+{
+  const body = document.querySelector("body");
+  const arrayElementos = ["HTML5", "CSS3", "React Native", "JS", "MongoBD"];
+
+  const newDiv = document.createElement("div"); // cria-se uma vid na memoria
+  body.appendChild(newDiv); // coloca o item da memoria como filho
+  newDiv.setAttribute("id", "newDivId"); // cria um atributo ID
+  newDiv.setAttribute("class", "newDivClass"); // cria um atributo class
+
+  arrayElementos.map((e, i) => {
+    //no map() o 1° parametro é o elemento e o segundo é o index do elemento
+    const newElement = document.createElement("div"); // criar a div na memoria
+    newElement.setAttribute("id", "n" + (i + 1)); // seta atributo da div que esta na memoria memoria
+    newElement.setAttribute("class", "newClass alt" + (i + 1));
+    newElement.innerHTML = e; // adiciona um iner HTML na div, baseado no conteudo do array
+    newDiv.appendChild(newElement); // insere a div criada como filho de outro elemento
+  });
+}
+
+// Remoção de elementos
+{
+  const newDiv = [...document.querySelectorAll("#newDivId div")];
+  const newClass = [...document.querySelectorAll(".newClass")];
+
+  newDiv.map((e) => {
+    const img = document.createElement("img");
+    e.appendChild(img);
+    img.setAttribute("src", "./img/lixo.png");
+
+    const newDive = document.querySelector("#newDivId");
+    img.addEventListener("click", (evt) => {
+      newDive.removeChild(evt.target.parentNode);
+    });
+  });
+}
+
+// METODO FILTER
+// ele vai percorrer o array e vai retornar apenas os elementos selecionados
+{
+}
