@@ -249,7 +249,7 @@ OR= só vai ser false se todas forem falsa
   }
 
   `ex:03`;
-  const objts = document.getElementsByTagName("div");
+  const objts = document.querySelectorAll(".first");
 
   for (o in objts) {
     console.log((objts[o].innerHTML = "Teste do in"));
@@ -618,11 +618,11 @@ OR= só vai ser false se todas forem falsa
 
 // Adição de elementos
 {
-  const body = document.querySelector("body");
+  const adicao = document.querySelector("#adicao");
   const arrayElementos = ["HTML5", "CSS3", "React Native", "JS", "MongoBD"];
 
   const newDiv = document.createElement("div"); // cria-se uma vid na memoria
-  body.appendChild(newDiv); // coloca o item da memoria como filho
+  adicao.appendChild(newDiv); // coloca o item da memoria como filho
   newDiv.setAttribute("id", "newDivId"); // cria um atributo ID
   newDiv.setAttribute("class", "newDivClass"); // cria um atributo class
 
