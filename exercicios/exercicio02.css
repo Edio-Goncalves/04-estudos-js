@@ -51,3 +51,6 @@ button,
   background-color: black;
   cursor: auto;
 }
+.reset {
+  background-color: rgb(133, 17, 23);
+}

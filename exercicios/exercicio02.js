@@ -3,49 +3,100 @@ const secondBox = document.querySelector("#secondBox");
 const cursos = ["Javascript", "PHP", "React", "CSS", "JAVA", "C#"];
 const btnCursoSelecionado = document.querySelector(".cursoSelecionado");
 const btnRemoveCurso = document.querySelector(".removerCurso");
+const btnAddAntes = document.querySelector(".adicionar.-antes");
+const btnAddDepois = document.querySelector(".adicionar.-depois");
+const inputNovoCurso = document.querySelector("#inputCurso");
+const btnReset = document.querySelector(".reset");
+let indice = 0;
 
-/* adicionando div para cursos */
+/* function cria div do curso */
+function newCurso(curso, indice) {
+  const criaDiv = document.createElement("div");
+  criaDiv.setAttribute("id", "curso" + (indice + 1));
+  criaDiv.setAttribute("class", "curso");
+  criaDiv.innerHTML = curso;
 
-cursos.map((e) => {
-  const div = document.createElement("div");
-  div.setAttribute("id", "c1");
-  div.setAttribute("class", "curso");
-  secondBox.appendChild(div);
-  div.innerHTML = e;
+  const criaInput = document.createElement("input");
+  criaInput.setAttribute("type", "radio");
+  criaInput.setAttribute("name", "inputRadio");
+  criaDiv.appendChild(criaInput);
 
-  const inputRadio = document.createElement("input");
-  inputRadio.setAttribute("type", "radio");
-  inputRadio.setAttribute("name", "InputRadio");
-  div.appendChild(inputRadio);
-});
-
-/* function que checa os radios e retorna o selecionado */
-function radiosSelecionados() {
-  const radios = [...document.querySelectorAll("input[type=radio]")];
-  let radioChecked = radios.filter((e) => {
-    return e.checked;
-  });
-  return radioChecked[0];
+  indice++;
+  return criaDiv;
 }
 
-/* executa function e imprime valor no alert */
+/* map que chama o curso */
+cursos.map((curso, indice) => {
+  const fnNewCurso = newCurso(curso, indice);
+  secondBox.appendChild(fnNewCurso);
+});
+
+/* function para selecionar radio checked */
+function selectRadio() {
+  const checkRadio = [...document.querySelectorAll("input[type=radio]")];
+  const checkedRadio = checkRadio.filter((e) => {
+    return e.checked;
+  });
+  return checkedRadio[0];
+}
+
+/* Curso selecionado */
 btnCursoSelecionado.addEventListener("click", () => {
-  const fnChecked = radiosSelecionados();
+  checkedRadio = selectRadio();
   try {
-    const cursoSelecionado = fnChecked.parentNode.textContent;
-    alert("Curso selecionado: " + cursoSelecionado);
+    const cr = checkedRadio.previousSibling.textContent;
+    alert("Curso selecionado: " + cr);
   } catch (ex) {
     alert("Selecione um curso");
   }
 });
 
-/* executa function e deleta div */
+/* Curso removido */
 btnRemoveCurso.addEventListener("click", () => {
-  const fnChecked = radiosSelecionados();
+  checkedRadio = selectRadio();
   try {
-    const cursoSelecionado = fnChecked.parentNode;
-    cursoSelecionado.remove();
+    const cr = checkedRadio.parentNode;
+    cr.remove();
   } catch (ex) {
     alert("Selecione um curso");
   }
+});
+
+/* adicionar novo curso antes do selecionado */
+btnAddAntes.addEventListener("click", () => {
+  checkedRadio = selectRadio();
+  try {
+    if (inputNovoCurso.value != "") {
+      indice = secondBox.children.length;
+      const valueinput = inputNovoCurso.value;
+      const cr = checkedRadio.parentNode;
+      const nc = newCurso(valueinput, indice);
+      secondBox.insertBefore(nc, cr);
+    } else {
+      alert("Digite um curso");
+    }
+  } catch (ex) {
+    alert("Selecione um curso");
+  }
+});
+/* adicionar novo curso antes do selecionado */
+btnAddDepois.addEventListener("click", () => {
+  checkedRadio = selectRadio();
+  try {
+    if (inputNovoCurso.value != "") {
+      indice = secondBox.children.length;
+      const valueinput = inputNovoCurso.value;
+      const cr = checkedRadio.parentNode;
+      const nc = newCurso(valueinput, indice);
+      secondBox.insertBefore(nc, cr.nextSibling);
+    } else {
+      alert("Digite um curso");
+    }
+  } catch (ex) {
+    alert("Selecione um curso");
+  }
+});
+
+btnReset.addEventListener("click", () => {
+  location.reload();
 });
