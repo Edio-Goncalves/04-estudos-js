@@ -667,3 +667,26 @@ OR= só vai ser false se todas forem falsa
   });
   console.log(maior);
 }
+
+// METODO FIND
+// Tem por finalidade percorrer um grupo de dados e entrontrar a compatibilidade da pesquisa
+// Sempre que ele encontrar um valor vai retornar true e quando não vai retornar undefined
+{
+  const p_array = document.querySelector(".arrayInner");
+  const buttonPesquisa = document.querySelector("#button");
+  const resultado = document.querySelector(".recebeResultado");
+  const inputPesquisa = document.querySelector("input[name=campo]");
+
+  const arrayNumeros = [1, 2, 5, 7, 32, 41, 57, 59, 84];
+  p_array.innerHTML = "[ " + arrayNumeros + " ]";
+
+  buttonPesquisa.addEventListener("click", () => {
+    arrayNumeros.find((e, i) => {
+      resultado.innerHTML = "Nenhum resultado compativel encontrado";
+      if (e == inputPesquisa.value) {
+        resultado.innerHTML = "Valor pesquisado " + e + " na posição " + i;
+        return e;
+      }
+    });
+  });
+}
