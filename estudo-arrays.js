@@ -18,8 +18,8 @@
 // find()
 // Tem por finalidade percorrer um grupo de dados e entrontrar a compatibilidade da pesquisa
 // Sempre que ele encontrar um valor vai retornar true e quando não vai retornar undefined
-
 var arrayNumeros = [1, 2, 5, 7, 32, 41, 57, 59, 84];
+
 {
   const p_array = document.querySelector(".arrayInner");
   const buttonPesquisa = document.querySelector(".pesquisaFind");
