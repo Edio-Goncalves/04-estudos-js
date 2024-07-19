@@ -29,9 +29,39 @@
         <p class="arrayInner"></p>
       </div>
       <div id="pesquisar">
-        <label>Pesquisar por:</label>
-        <input type="text" name="campo" />
-        <button id="button">Pesquisar</button>
+        <h3>find( )</h3>
+        <div>
+          <label>Pesquisar por:</label>
+          <input type="text" name="campoFind" />
+          <button id="button" class="pesquisaFind">Pesquisar</button>
+        </div>
+        <h3>every( )</h3>
+        <div>
+          <label>O conjunto de numeros no array é menor que?</label>
+          <input type="text" name="campoEvery" />
+          <button id="button" class="verificarEvery">Verificar</button>
+        </div>
+        <h3>some( )</h3>
+        <div>
+          <label>Nos elementos do array contem o numero?</label>
+          <input type="text" name="campoSome" />
+          <button id="button" class="verificarSome">Verificar</button>
+        </div>
+        <h3>reduce( )</h3>
+        <div>
+          <label>Escolha a operação efetuada no array:</label>
+          <div class="radioReduce">
+            <div>
+              <div class="somaInp">
+                <input type="radio" name="check" /><label>SOMA</label>
+              </div>
+              <div class="mediaInp">
+                <input type="radio" name="check" /><label>MÉDIA </label>
+              </div>
+            </div>
+          </div>
+          <button id="button" class="verificarReduce">Verificar</button>
+        </div>
       </div>
       <div id="resultado">
         <p>Resultado:</p>
@@ -39,5 +69,6 @@
       </div>
     </article>
     <script src="script.js"></script>
+    <script src="arrays.js"></script>
   </body>
 </html>
