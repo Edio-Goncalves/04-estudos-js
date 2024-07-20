@@ -58,6 +58,7 @@ main {
   cursor: pointer;
 }
 
+/* CSS Metodos do Array */
 .article {
   margin-left: auto;
   margin-right: auto;
@@ -127,4 +128,40 @@ input {
 }
 #pesquisar div .radioReduce div div {
   border: 2px solid #ffffff;
+}
+
+/* CSS Operações calculadora */
+.warpperCalculadora {
+  margin: 50px 0px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgb(169, 116, 16);
+  color: #ffffff;
+}
+
+.valor {
+  margin-bottom: 10px;
+}
+
+.inputCalc,
+.inputRes {
+  display: block;
+  width: 100%;
+}
+.inputRes {
+  cursor: not-allowed;
+}
+.btn_style {
+  width: 30px;
+  height: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #252525;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn_style:hover {
+  background-color: #333333;
+  color: rgb(120, 161, 255);
 }
