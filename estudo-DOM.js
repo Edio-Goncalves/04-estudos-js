@@ -143,3 +143,22 @@
     });
   }
 }
+
+// TAMPLETE STRINGS
+const template = "templete";
+const teste = "teste";
+
+console.log("este é um " + teste + " de " + template + " string");
+console.log(`este é um ${teste} de ${template} string`);
+
+//ex01
+
+const carros = ["Corola", "Golf", "Astra", "fusca"];
+
+let ol = `<ol>`;
+carros.map((element) => {
+  ol += `<li>${element}</li>`;
+});
+ol += `</ol>`;
+
+console.log(ol);
