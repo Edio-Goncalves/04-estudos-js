@@ -219,14 +219,6 @@
   c2.atirar();
   c2.atirar();
   c2.atirar();
-  // atirar();
-  // atirar();
-  // atirar();
-  // atirar();
-  // atirar();
-  // atirar();
-  // atirar();
-  // atirar();
 
   console.log(`--------------------------`);
   console.log(`Nome: ${c2.nome}`);
