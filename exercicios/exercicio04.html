@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercicio sobre classes</title>
+    <link rel="stylesheet" href="/exercicios/exercicio04.css" />
+  </head>
+  <body>
+    <div id="criarCarro" class="criarCarro">
+      <div class="campoForm">
+        <label for="c_nome">Nome</label>
+        <input type="text" name="c_nome" id="c_nome" value="" />
+      </div>
+      <div class="campoForm">
+        <label for="c_portas">Portas</label>
+        <input type="number" name="c_portas" id="c_portas" value="0" />
+      </div>
+      <div class="campoForm">
+        <label for="c_blindagem">Blindagem</label>
+        <input
+          type="number"
+          name="c_blindagem"
+          id="c_blindagem"
+          disabled
+          value="0"
+        />
+      </div>
+      <div class="campoForm">
+        <label for="c_municao">Munição</label>
+        <input
+          type="number"
+          name="c_municao"
+          id="c_municao"
+          disabled
+          value="0"
+        />
+      </div>
+      <div class="campoForm">
+        <label>Tipo</label>
+        <div class="radio">
+          <input
+            type="radio"
+            class="c_tipo"
+            id="c_tipoMilitar"
+            name="c_tipo"
+            value="m"
+          />
+          <label for="c_tipoMilitar">Militar</label>
+          <input
+            type="radio"
+            class="c_tipo"
+            id="c_tipoCivil"
+            name="c_tipo"
+            value="m"
+          />
+          <label for="c_tipoCivil">Civil</label>
+        </div>
+      </div>
+      <div>
+        <button id="btn_addCarro">Adicionar</button>
+      </div>
+    </div>
+    <div class="veiculos">
+      <label> Lista de Veiculos</label>
+      <div id="veiculos" class="listaVeiculos">
+        <!-- DIv dos VEICULOS -->
+      </div>
+    </div>
+
+    <script src="./exercicio04.js"></script>
+  </body>
+</html>

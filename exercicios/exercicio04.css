@@ -1,0 +1,80 @@
+.criarCarro,
+.veiculos {
+  box-sizing: border-box;
+  max-width: 500px;
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border: 2px solid #252525;
+  border-radius: 8px;
+}
+
+.campoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 10px;
+}
+.campoForm input,
+button {
+  background-color: rgb(238, 238, 238);
+  font-size: 16px;
+  line-height: 1.7;
+  padding-left: 10px;
+  border-radius: 5px;
+  border: none;
+}
+button {
+  cursor: pointer;
+  width: 100%;
+  background-color: rgb(0, 66, 0);
+  color: aliceblue;
+  text-transform: uppercase;
+  height: 50px;
+}
+button:hover {
+  background-color: rgb(0, 90, 0);
+}
+
+.veiculos {
+  display: flex;
+  flex-direction: column;
+  min-height: 40px;
+  margin-top: 5px;
+  padding: 5px 20px;
+}
+.veiculos label {
+  text-align: center;
+  border-bottom: 1px solid #252525;
+}
+.listaVeiculos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.veiculoCadastrado {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.veiculoCadastrado ul {
+  width: 100%;
+  padding-left: 10px;
+  margin: 0px;
+  border-bottom: 1px dashed #252525;
+}
+.veiculoCadastrado ul li {
+  list-style-type: none;
+  overflow: hidden;
+}
+.lixeira {
+  cursor: pointer;
+  width: 20px;
+  position: absolute;
+  right: 0;
+}
+/* 
+.radio
+*/
