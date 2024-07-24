@@ -165,3 +165,31 @@ input {
   background-color: #333333;
   color: rgb(120, 161, 255);
 }
+
+/* CSS SetTimeout */
+.numero01 {
+  font-size: large;
+}
+.ok {
+  color: rgb(21, 0, 255);
+}
+.error {
+  color: red;
+}
+/* CSS MATH */
+.wrapperMath {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 30px;
+}
+.mat {
+  width: 150px;
+  margin-top: 10px;
+  padding: 0px 10px;
+  text-align: center;
+  line-height: 3;
+  background-color: #252525;
+  color: #ffffff;
+}

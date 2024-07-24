@@ -122,3 +122,95 @@
   c2.info();
   c3.info();
 }
+
+// PROMISE
+// É usado para resolver o problema do assíncrono.
+// Basicamente, a promise é uma promessa de execução; o JS segue o curso e, assim que a requisição da promise é concluída, ela é executada.{
+// Perfeita para resolver problemas com API
+{
+  {
+    const numero = document.querySelector("#numero01");
+
+    // Se a promise for aceita, ela vai para o primeiro parâmetro; se rejeitada (erro), ela vai para o segundo parâmetro.
+    const promise = new Promise((resolve, reject) => {
+      let resultado = true;
+      let tempo = 3000;
+      setTimeout(() => {
+        if (resultado) {
+          resolve("Deu tudo certo.");
+        } else {
+          reject("Deu tudo errado.");
+        }
+      }, tempo);
+    });
+
+    promise.then((retorno) => {
+      /* Se deu certo entra no 'then' */
+      numero.innerHTML = retorno;
+      numero.classList.remove("error");
+      numero.classList.add("ok");
+    });
+    promise.catch((retorno) => {
+      /* Se deu errado entra no 'catch' */
+      numero.innerHTML = retorno;
+      numero.classList.add("error");
+      numero.classList.remove("ok");
+    });
+
+    numero.innerHTML = "Processando...";
+  }
+  //promise na function
+  {
+    const btn_promise = document.querySelector("#btn_promise");
+    const numero = document.querySelector("#numero01");
+
+    btn_promise.addEventListener("click", () => {
+      numero.innerHTML = "Processando...";
+      promessa()
+        .then((retorno) => {
+          /* Se deu certo entra no 'then' */
+          numero.innerHTML = retorno;
+          numero.classList.remove("error");
+          numero.classList.add("ok");
+        })
+        .catch((retorno) => {
+          /* Se deu errado entra no 'catch' */
+          numero.innerHTML = retorno;
+          numero.classList.add("error");
+          numero.classList.remove("ok");
+        });
+    });
+
+    const promessa = () => {
+      let promises = new Promise((resolve, reject) => {
+        let resultado = true;
+        let tempo = 3000;
+        setTimeout(() => {
+          if (resultado) {
+            resolve("Deu tudo certo NOVAMENTE.");
+          } else {
+            reject("Deu tudo errado.");
+          }
+        }, tempo);
+      });
+      return promises;
+    };
+
+    numero.innerHTML = "Esperando";
+  }
+}
+
+// MATH
+{
+  const mat1 = document.querySelector("#mat1");
+  const mat2 = document.querySelector("#mat2");
+  const mat3 = document.querySelector("#mat3");
+  const mat4 = document.querySelector("#mat4");
+  const mat5 = document.querySelector("#mat5");
+
+  mat1.innerHTML = Math.PI;
+  mat2.innerHTML = Math.random();
+  mat3.innerHTML = Math.floor(Math.random() * 10); //Arredonda para baixo
+  mat4.innerHTML = Math.round(Math.random() * 10); //Arredonda para cima
+  mat5.innerHTML = Math.pow(10, 2); // Elevado ao quadrado
+}
