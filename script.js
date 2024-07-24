@@ -206,11 +206,9 @@
   const mat2 = document.querySelector("#mat2");
   const mat3 = document.querySelector("#mat3");
   const mat4 = document.querySelector("#mat4");
-  const mat5 = document.querySelector("#mat5");
 
   mat1.innerHTML = Math.PI;
   mat2.innerHTML = Math.random();
   mat3.innerHTML = Math.floor(Math.random() * 10); //Arredonda para baixo
-  mat4.innerHTML = Math.round(Math.random() * 10); //Arredonda para cima
-  mat5.innerHTML = Math.pow(10, 2); // Elevado ao quadrado
+  mat4.innerHTML = Math.pow(10, 2); // Elevado ao quadrado
 }
