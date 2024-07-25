@@ -213,67 +213,72 @@
   mat4.innerHTML = Math.pow(10, 2); // Elevado ao quadrado
 }
 
-{
-  class Carross {
-    constructor(tipo, estagio) {
-      this.turbo = new Turbo(estagio);
-      if (tipo == 1) {
-        this.velMax = 120;
-        this.nome = "Normal";
-      } else if (tipo == 2) {
-        this.velMax = 160;
-        this.nome = "Esportivo";
-      } else if (tipo == 3) {
-        this.velMax = 200;
-        this.nome = "Super Esportivo";
-      }
-      this.velMax += this.turbo.pot;
-    }
-    info() {
-      console.log(this.nome);
-      console.log(this.velMax);
-      console.log(this.turbo);
-      console.log("----------------");
-    }
-  }
-}
-class Turbo {
-  constructor(e) {
-    if (e == 0) {
-      this.pot = 0;
-    } else if (e == 1) {
-      this.pot = 50;
-    } else if (e == 2) {
-      this.pot = 75;
-    } else if (e == 3) {
-      this.pot = 100;
-    }
-  }
-}
+// OBJETOS LITERAIS
 
-class CarroEspecial extends Carross {
-  constructor(estagio) {
-    super(4, estagio);
-    this.tipoInfo = 0;
-    this.velMax = 300 + this.turbo.pot;
-    this.nome = "Carro especial";
-  }
-  info() {
-    if (this.tipoInfo == 1) {
-      super.info();
-    } else {
-      console.log(`Nome...:${this.nome}`);
-      console.log(`Vel.Max:${this.velMax}`);
-      console.log(`Turbo..:${this.turbo.pot}`);
-      console.log(`-------------------------`);
-    }
-  }
-}
+// objeto
+const computador = {
+  cpu: "i9",
+  ram: "64gb",
+  hd: "2tb",
+  info: function () {
+    // Cria um método
+    console.log(`CPU: ${this.cpu}`);
+    console.log(`RAM: ${this.ram}`);
+    console.log(`HD: ${this.hd}`);
+    console.log(`VIDEO: ${this.video}`);
+    console.log(`MONITOR: ${this.monitor}`);
+  },
+};
 
-const c1 = new Carross(1, 0);
-const c2 = new Carross(1, 1);
-const c3 = new CarroEspecial(3);
+computador.video = "nVidea"; // Adiciona por.name
+computador["monitor"] = '24"'; // Adiciona por ["name"]
 
-c1.info();
-c2.info();
-c3.info();
+computador.info(); // Chama o método, tem que estar abaixo das novas adições ou será undefined
+
+console.log(computador); // imprime todo objeto
+console.log(computador.cpu); // imprime valor do "cpu:"
+console.log(computador["hd"]); // Imprime valor do "hd:"
+
+// Objeto com array
+const computadores = [
+  {
+    cpu: "i8",
+    ram: "32gb",
+    hd: "3tb",
+  },
+  {
+    cpu: "i9",
+    ram: "64gb",
+    hd: "2tb",
+  },
+  {
+    cpu: "i7",
+    ram: "16gb",
+    hd: "1tb",
+  },
+];
+
+console.log(computadores[0]); // Imprime o objeto na posição [0]
+console.log(computadores[2].cpu); // Imprime o cpu: do objet na posição [2]
+console.log(computadores[1]["hd"]); // Imprime o hd: do objet na posição [1]
+
+// Object interface
+
+const obj1 = {
+  obj1: 1,
+  tst1: "objeto 01",
+};
+const obj2 = {
+  obj2: 2,
+  tst2: "objeto 02",
+};
+const obj3 = {
+  obj3: 2,
+  tst1: "objeto 03", //tst1 se repete, em um merge ele substitui pelo ultimo valor da propriedade
+};
+
+const clone = Object.assign({}, obj1);
+console.log(clone);
+
+const merge = Object.assign(obj1, obj2, obj3);
+console.log(merge); // Cada objeto tem de ter propriedades diferentes ou ele vai substituir o valor
