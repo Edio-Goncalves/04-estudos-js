@@ -212,3 +212,46 @@
   mat3.innerHTML = Math.floor(Math.random() * 10); //Arredonda para baixo
   mat4.innerHTML = Math.pow(10, 2); // Elevado ao quadrado
 }
+
+// SYMBOL
+// Retorna um objeto do tipo symbol que tem um identificador único
+// Sempre vai retornar um elemento do tipo symbol que tem um identificador único
+
+{
+  const s1 = Symbol();
+  const s2 = Symbol();
+  console.log(s1 == s2); // vai retornar false, cada symbol é unico
+
+  const s3 = Symbol.for("Junior"); // Adiciona um identificador global
+  const s4 = Symbol.for("Junior");
+  const s5 = Symbol.for("Edio");
+  console.log(s3 == s4); // Vai retornar true, por que quando tem identificador global ele compara
+  console.log(Symbol.keyFor(s4)); // Quando tem identificador global conseguimos pegar seu identificador
+  console.log(Symbol.keyFor(s5));
+}
+// Ex01
+{
+  class Jogador {
+    constructor(nome) {
+      this.nome = nome;
+      this.id = Symbol();
+    }
+  }
+  let jogadores = [
+    new Jogador("jog1"),
+    new Jogador("jog2"),
+    new Jogador("jog3"), // Podemos repetir o jogador mas ainda assim serão únicos
+    new Jogador("jog3"), // Pois cada symbol é único
+    new Jogador("jog3"),
+    new Jogador("jog3"),
+  ];
+
+  let j1 = jogadores[0].id;
+
+  // Deletar do array pelo id symbol
+  jogadores = jogadores.filter((j) => {
+    return j.id != j1;
+  });
+
+  console.log(jogadores);
+}

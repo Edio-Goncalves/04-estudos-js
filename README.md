@@ -13,12 +13,17 @@
 - [DOM](#dom)
 - [MANIPULAÇÃO DE ELEMENTOS NO DOM](#manipulação-de-elementos-no-dom)
 - [STOP PROPAGATION](#stop-propagation)
-- [TAMPLETE STRINGS](#tamplete-strings)
+- [STRING](#string)
 - [METODOS DO ARRAY](#metodos-do-array)
 - [COLEÇÕES](#coleções)
 - [OBJETOS](#objetos)
 - [OBJETOS LITERAIS](#objetos-literais)
 - [CONCEITO DE HERANÇA](#conceito-de-herança)
+- [JSON](#json)
+- [POLIMORFISMO](#polimorfismo)
+- [PROTOTYPE](#prototype)
+- [PROMISE](#promise)
+- [MATH](#math)
 
 ### LINKS DE VÍDEOS CURSOS E DOCUMENTAÇÃO
 
@@ -162,9 +167,9 @@ let num = 11;
 
 ### TYPEOF
 
-Usado para identificar o tipo de dado
-
 <a href="www.youtube.com/watch?v=_qgObfmqokw&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=13">LINK Youtube Typeof</a>
+
+Usado para identificar o tipo de dado
 
 ```
 {
@@ -533,7 +538,8 @@ console.log(soma(2, 3));
 
 - Função Geradora
 
-<a href="https://www.youtube.com/watch?v=3j9Ikmm2ieA&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=28">YT Função Geradora, Professor Bruno (CFB) </a>  
+<a href="https://www.youtube.com/watch?v=3j9Ikmm2ieA&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=28">YT Função Geradora, Professor Bruno (CFB) </a>
+
 Ela tem o seu retorno adiado até que for preciso o seu retorno, a propria função tem o controle de sua execução  
 Temos que usar a palavra "function"
 
@@ -774,7 +780,48 @@ Parar a propogação de um evento
 
 #
 
-### TAMPLETE STRINGS
+### STRING
+
+<a href="https://www.youtube.com/watch?v=lv4hFkirhps&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=102">YT Funções par atrabalhar com string, Professor Bruno (CFB) </a>;
+
+- Funções para trabalhar com string
+
+```
+{
+  let nome = new String("Edio");
+  let nome2 = new String("Edio");
+  let sobrenome = new String("Gonçalves");
+  console.log(nome);
+  console.log(typeof nome);
+  console.log(nome.charAt(3)); // mostra o caractere de acordo com a posição
+  console.log(nome.charCodeAt(2)); // Retorna o código do caractere
+  console.log(nome.concat(` ${sobrenome}`)); // Ela retorna o valor concatenado mas nao altera o valor
+  let newNome = nome.concat(` ${sobrenome}`);
+  console.log(newNome);
+  console.log(nome.indexOf("d")); // Busca a posição da primeira sentença que está pesquisando, senao tiver retorna -1
+  console.log(newNome.lastIndexOf("o")); // Busca posição do ultimo caractere
+  console.log(nome.localeCompare(nome2)); // Retorno 0 significa que são iguais, retorno -1 significa que a primeira string é maior e se for 1 a segunda string é maior
+  console.log(nome.replace("Ed", "Ted")); // Substitui o primeiro caractere
+  console.log(sobrenome.slice(1, 6)); // Retorna apenas o corte indicado
+  console.log(newNome.split(" ")); // Ele recorta onde indicado e faz um array com o restante
+  console.log(newNome.substring(0, 5)); // Retorna o que está dentro das posições indicadas
+  console.log(newNome.substr(5, 8)); // Marca a posição inicial e configura a quantidade de posiçõe subsequentes
+  console.log(nome.toUpperCase()); // Coloca em caixa alta
+  console.log(nome.toLocaleLowerCase()); // coloca toda em minusculo
+  console.log(nome.valueOf()); // Retorna apenas o valor do objeto, valor primitivo(Real)
+  let num = 10;
+  num = num.toString();
+  console.log(num); // Transforma o valor em string
+  console.log(newNome.startsWith("L")); // Verifica o inicio da strin e retorna true or false
+  console.log(nome.endsWith("io")); // Verifica o termino e retorna true or false
+  console.log(newNome.includes("çal")); // Verifica se em alguma parte da string possui os caracteres
+  console.log(nome.repeat(4)); // Para repetir a string de acordo com a quantidade desejada
+}
+```
+
+#
+
+- Templete string
 
 ```
 const template = "templete";
@@ -1016,10 +1063,11 @@ btn_divisão.addEventListener("click", resFunction[3]);
 
 - map
 
+<a href="https://www.youtube.com/watch?v=y9Tz0bjXBXs&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=55"> YT COLEÇÃO MAP, Professor Bruno (CFB){" "} </a>;
+
 Coleções do map é uma coleção chaves to valor  
  Se uma chave for repetida a ultima chave vai substituir o valor  
- É preciso instanciar a coleção, devemos usar "new" para reservar a memoria para poder se usada  
-<a href="https://www.youtube.com/watch?v=y9Tz0bjXBXs&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=55"> YT COLEÇÃO MAP, Professor Bruno (CFB){" "} </a>;
+ É preciso instanciar a coleção, devemos usar "new" para reservar a memoria para poder se usada
 
 ```
 let recebeMapa = "";
@@ -1065,9 +1113,10 @@ Eex 03 - Deletando e Inteirando a coleção
 
 - set
 
-É uma coleção que nao permite entrdas duplicadas de elementos  
-É como a coleção map, devemos reservar memoria para a coleção ("new")  
 <a href="https://www.youtube.com/watch?v=v24QAyoiAo0&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=56"> YT COLEÇÃO SET, Professor Bruno (CFB)</a>;
+
+É uma coleção que nao permite entrdas duplicadas de elementos  
+É como a coleção map, devemos reservar memoria para a coleção ("new")
 
 ```
 let colecaoSet = new Set(["musica", "musica boa", "musica ruim"]);
@@ -1353,10 +1402,11 @@ console.log(merge); // Cada objeto tem de ter propriedades diferentes ou ele vai
 
 ### CONCEITO DE HERANÇA
 
+<a href="https://www.youtube.com/watch?v=-fOCg39SBzc&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=63">YT Função Geradora, Professor Bruno (CFB) </a>
+
 É basicamente uma classe que herda outra classe
 Podemos ter uma classe pai que vai ceder metodos e propriedades para classes filho
 Tudo que está implementado na classe pai vale para a classe filho
-<a href="https://www.youtube.com/watch?v=-fOCg39SBzc&list=PLx4x_zx8csUg_AxxbVWHEyAJ6cBdsYc0T&index=63">YT Função Geradora, Professor Bruno (CFB) </a>
 
 ```
 
@@ -1429,7 +1479,7 @@ console.log(`Cor: ${c2.cor}`);
 
 #
 
-### JASON
+### JSON
 
 - Conversão de dados
 
@@ -1464,7 +1514,7 @@ console.log(o_json); /_ Imprime o objeto vindo de um JSON \*/
 
 #
 
-### PROPTOTYPE
+### PROTOTYPE
 
 Serve basicamente para adicionar uma propriedade ou um método a um objeto, principalmente a objetos de função
 
@@ -1671,8 +1721,10 @@ const numero = document.querySelector("#numero01");
 
 ### MATH
 
-```
+<a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math">MDN Math - Todas regras, constantes e funções matemáticas </a>  
+<a href="https://www.youtube.com/watch?v=oSXBD3g3TeM">YT MATH, Professor Bruno (CFB) </a>
 
+```
 {
 const mat1 = document.querySelector("#mat1");
 const mat2 = document.querySelector("#mat2");
