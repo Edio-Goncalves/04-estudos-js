@@ -255,3 +255,27 @@
 
   console.log(jogadores);
 }
+
+// GEOLOCALIZAÇÃO
+// navigator.geolocation.getCurrentPosition nessecita de um callback se nao da erro
+const long = document.getElementById("long");
+const lati = document.getElementById("lati");
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(
+    cbGeolocalizacao, //callBack
+    cbErroGeolocalizacao //callBack
+  );
+} else {
+  console.log("Geolocalização não suportada");
+}
+
+function cbGeolocalizacao(pos) {
+  long.innerHTML = `Longitude: ${pos.coords.longitude}`;
+  lati.innerHTML = `Latitude: ${pos.coords.latitude}`;
+}
+function cbErroGeolocalizacao() {
+  console.log("Erro ao obter a localização");
+}
+
+//Envio

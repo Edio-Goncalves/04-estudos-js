@@ -193,3 +193,64 @@ input {
   background-color: #252525;
   color: #ffffff;
 }
+
+/* CSS TESTE API */
+#apiTest {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#titulo {
+  font-size: 20px;
+  margin: 0;
+}
+#titulo::first-letter,
+#texto::first-letter {
+  text-transform: uppercase;
+}
+#texto {
+  margin: 0;
+}
+
+#apiProduct {
+  border: 2px solid #252525;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+#apiProduct div {
+  border: 2px solid transparent;
+}
+.idSty,
+.titleSty,
+.descSty {
+  margin: 0px;
+  padding: 0px;
+}
+.idSty {
+  float: left;
+  margin-right: 20px;
+  background-color: #252525;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.titleSty {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.descSty {
+  font-size: 16px;
+}
